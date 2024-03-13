@@ -1,0 +1,70 @@
+<app-sellernav></app-sellernav>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 registration-container">
+            <h2 class="text-center mb-4">Add Or Update Product</h2>
+            <form #productForm="ngForm" (submit)="onSubmit(productForm)" novalidate>
+                <input type="hidden" name="ProductId" [value]="productService.proddata.ProductId">
+                <input type="hidden" name="SellerId" [value]="productService.proddata.SellerId">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="ProductName" class="form-label">Product Name</label>
+                        <input type="text" class="form-control" id="ProductName" [(ngModel)]="productService.proddata.ProductName" name="ProductName" required>
+                        <div *ngIf="productForm.controls['ProductName'].invalid && (productForm.controls['ProductName'].dirty || productForm.controls['ProductName'].touched)">
+                            <small class="text-danger">Product Name is required.</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="Description" class="form-label">Description</label>
+                        <textarea class="form-control" id="Description" [(ngModel)]="productService.proddata.Description" name="Description" required></textarea>
+                        <div *ngIf="productForm.controls['Description'].invalid && (productForm.controls['Description'].dirty || productForm.controls['Description'].touched)">
+                            <small class="text-danger">Description is required.</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="Price" class="form-label">Price</label>
+                        <input type="number" class="form-control" id="Price" [(ngModel)]="productService.proddata.Price" name="Price" required>
+                        <div *ngIf="productForm.controls['Price'].invalid && (productForm.controls['Price'].dirty || productForm.controls['Price'].touched)">
+                            <small class="text-danger">Price is required.</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="QuantityInStock" class="form-label">Quantity In Stock</label>
+                        <input type="number" class="form-control" id="QuantityInStock" [(ngModel)]="productService.proddata.QuantityInStock" name="QuantityInStock" required>
+                        <div *ngIf="productForm.controls['QuantityInStock'].invalid && (productForm.controls['QuantityInStock'].dirty || productForm.controls['QuantityInStock'].touched)">
+                            <small class="text-danger">Quantity In Stock is required.</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="CategoryId" class="form-label">Category</label>
+                        <select class="form-select" id="CategoryId" [(ngModel)]="productService.proddata.CategoryId" name="CategoryId" required>
+                            <option *ngFor="let category of categories" [value]="category.CategoryId">
+                                {{ category.CategoryName }}
+                            </option>
+                        </select>
+                        <div *ngIf="productForm.controls['CategoryId'].invalid && (productForm.controls['CategoryId'].dirty || productForm.controls['CategoryId'].touched)">
+                            <small class="text-danger">Category is required.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="ProductUrl" class="form-label">ProductUrl</label>
+                        <textarea class="form-control" id="ProductUrl" [(ngModel)]="productService.proddata.ProductUrl" name="ProductUrl" required></textarea>
+                        <div *ngIf="productForm.controls['ProductUrl'].invalid && (productForm.controls['ProductUrl'].dirty || productForm.controls['ProductUrl'].touched)">
+                            <small class="text-danger">ProductUrl is required.</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-register" [disabled]="!productForm.form.valid">Add/Update Product</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
+</body>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Seller Profile</title>
+</head>
+<app-sellernav></app-sellernav>
+<body>
+    <div class="container " style="margin-top: 2%; margin-bottom: 2%;">
+        <div class="bg-dark text-white text-center p-4 rounded">
+            <h1 class="display-6">{{sellhome.seller.SellerFullName}}'s Profile</h1>
+            <hr class="my-4">
+            <h4><strong>SellerId:</strong> {{sellhome.seller.SellerId}}</h4>
+            <h4><strong>Email:</strong> {{sellhome.seller.SellerEmail}}</h4>
+            <h4><strong>Phone Number:</strong> {{sellhome.seller.SellerPhoneNumber}}</h4>
+            <h4><strong>Address:</strong> {{sellhome.seller.SellerAddress}}</h4>
+            <h4><strong>Gender:</strong> {{sellhome.seller.SellerGender}}</h4>
+        </div>
+
+        <div class="row mt-2 ">
+            <div class="col-lg-4 team-member border" style="background-color: lightblue;" routerLink="/salesreport">
+                
+                    <img src="https://blog.bit.ai/wp-content/uploads/2020/12/mw1920_internal-asset4-12.png" alt="Sales Report"
+                        class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+                    <h3 class="mt-3">Sales Report</h3>
+                
+            </div>
+
+            <div class="col-lg-4 team-member border" style="background-color: lightblue;" routerLink="/addnewproduct">
+               
+                    <img src="https://th.bing.com/th/id/OIP.1N5QGz7EMJD-Wr2vvllgSQHaHa?w=800&h=800&rs=1&pid=ImgDetMain"
+                        alt="Add Product" class="img-fluid rounded-circle"
+                        style="width: 150px; height: 150px; object-fit: cover;">
+                    <h3 class="mt-3">Add Product</h3>
+                
+            </div>
+
+            <div class="col-lg-4 team-member border" style="background-color: lightblue;" routerLink="/updateprofile">
+                
+                    <img src="https://static.vecteezy.com/system/resources/previews/006/467/668/original/a-trendy-icon-of-profile-update-isometric-design-vector.jpg"
+                        alt="Update Your Profile" class="img-fluid rounded-circle"
+                        style="width: 150px; height: 150px; object-fit: cover;">
+                    <h3 class="mt-3">Update Your Profile</h3>
+                
+            </div>
+
+            
+        </div>
+    </div>
+
+    
+</body>
+
+</html>

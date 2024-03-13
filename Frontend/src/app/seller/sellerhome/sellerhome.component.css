@@ -1,0 +1,25 @@
+body {
+    background: linear-gradient(45deg, #00ffe5cc, #ff3392a9);
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.team-member {
+    margin-top: 30px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.team-member:hover {
+    transform: scale(.95);
+}

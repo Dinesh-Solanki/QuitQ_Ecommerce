@@ -1,0 +1,47 @@
+<!-- your.component.html -->
+
+<app-adminnav></app-adminnav>
+<body>
+<div class="container mt-5 bg-dark">
+  <h1 class="text-center mb-4">Order Items for Seller</h1>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Order ID</th>
+          <th>User ID</th>
+          <th>Amount</th>
+          <th>Oeder Date</th>
+          <th>Shipping Address</th>
+          <th>Status</th>
+          <th>Process Order</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let o of orders">
+          <td>{{ o.OrderId }}</td>
+          <td>{{ o.UserId }}</td>
+          <td>{{ o.Amount| currency:'INR':true:'1.2-2' }}</td>
+          <td>{{ o.OrderDate }}</td>
+          <td>{{ o.ShippingAddress }}</td>
+          <td>{{ o.Status }}</td>
+          <td><button class="btn btn-warning" (click)="showDropdown(o)">Process</button></td>
+          <div *ngIf="o.showDropdown">
+            <select class="form-control" [(ngModel)]="o.selectedStatus">
+              <option value="Processing">Processing</option>
+              <option value="Shipped">Shipped</option>
+              <option value="In Transit">In Transit</option>
+              <option value="Delivered">Delivered</option>
+            </select>
+            <button class="btn btn-success" (click)="updateStatus(o)">Update</button>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+
+
+
+

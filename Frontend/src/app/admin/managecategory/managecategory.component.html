@@ -1,0 +1,32 @@
+<app-adminnav></app-adminnav>
+
+<div class="container" style="margin-top: 2.5%;">
+    <div class="row">
+      <div class="col-md-8">
+        <h2 class="text-center text-white bg-primary">Category List</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">Category Id</th>
+                    <th scope="col">Category Name</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let category of srv.catlist">
+                    <th>{{category.CategoryId}}</th>
+                    <td>{{ category.CategoryName }}</td>                   
+                    <td><button class="btn btn-warning" (click)="fillform(category)">Update</button></td>
+                    <td><button class="btn btn-danger" (click)="deleterecord(category.CategoryId)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <div class="col-md-4">
+        <h2 class="text-center text-white bg-success">Introduce or Update Category</h2>
+        <app-addorupdate></app-addorupdate>
+      </div>
+    </div>
+  </div>

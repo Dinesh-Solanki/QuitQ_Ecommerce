@@ -1,0 +1,86 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+</head>
+<app-nav></app-nav>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 registration-container">
+            <h2 class="text-center mb-4">User Registration</h2>
+            <form #userForm="ngForm" (submit)="registerUser()" novalidate>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="inputUserName" class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="inputUserName" [(ngModel)]="newUser.FullName" name="userName" required>
+                        <div *ngIf="userForm.controls['userName'].invalid && (userForm.controls['userName'].dirty || userForm.controls['userName'].touched)">
+                            <small class="text-danger">User Name is required.</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="inputPassword" [(ngModel)]="newUser.Password" name="password" required>
+                        <div *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)">
+                            <small class="text-danger">Password is required.</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputConfirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="inputConfirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+                        <div *ngIf="userForm.controls['confirmPassword'].invalid && (userForm.controls['confirmPassword'].dirty || userForm.controls['confirmPassword'].touched)">
+                            <small class="text-danger" *ngIf="confirmPassword !== newUser.Password">Passwords do not match.</small>
+                            <small class="text-danger" *ngIf="userForm.controls['confirmPassword'].hasError('required')">Confirm Password is required.</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputGender" class="form-label">Gender</label>
+                        <select class="form-select" id="inputGender" [(ngModel)]="newUser.Gender" name="gender" required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div *ngIf="userForm.controls['gender'].invalid && (userForm.controls['gender'].dirty || userForm.controls['gender'].touched)">
+                            <small class="text-danger">Gender is required.</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" [(ngModel)]="newUser.Email" name="email" required>
+                        <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)">
+                            <small class="text-danger" *ngIf="userForm.controls['email'].hasError('email')">Invalid email address.</small>
+                            <small class="text-danger" *ngIf="userForm.controls['email'].hasError('required')">Email is required.</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputMobile" class="form-label">Mobile</label>
+                        <input type="tel" class="form-control" id="inputMobile" [(ngModel)]="newUser.PhoneNumber" name="mobile" required>
+                        <div *ngIf="userForm.controls['mobile'].invalid && (userForm.controls['mobile'].dirty || userForm.controls['mobile'].touched)">
+                            <small class="text-danger" *ngIf="userForm.controls['mobile'].hasError('pattern')">Invalid mobile number.</small>
+                            <small class="text-danger" *ngIf="userForm.controls['mobile'].hasError('required')">Mobile is required.</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label for="Address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="Address" [(ngModel)]="newUser.Address" name="address" required>
+                        <div *ngIf="userForm.controls['address'].invalid && (userForm.controls['address'].dirty || userForm.controls['address'].touched)">
+                            <small class="text-danger">Address is required.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-register" [disabled]="!userForm.form.valid || confirmPassword !== newUser.Password">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>

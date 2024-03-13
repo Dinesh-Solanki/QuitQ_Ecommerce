@@ -1,0 +1,79 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Registration</title>
+</head>
+<app-nav></app-nav>
+<body >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 registration-container">
+                <h2 class="text-center mb-4">Update Seller Profile</h2>
+                <form #sellerForm="ngForm" (ngSubmit)="updateseller()" novalidate>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="inputSellerName" class="form-label">Seller Name</label>
+                            <input type="text" class="form-control" id="inputSellerName" [(ngModel)]="newSeller.SellerFullName" name="sellerName" required>
+                            <div *ngIf="sellerForm.controls['sellerName'].invalid && (sellerForm.controls['sellerName'].dirty || sellerForm.controls['sellerName'].touched)">
+                                <small class="text-danger">Seller Name is required.</small>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6" hidden>
+                            <label for="inputPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="inputPassword" [(ngModel)]="newSeller.SellerPassword" name="password" required>
+                            <div *ngIf="sellerForm.controls['password'].invalid && (sellerForm.controls['password'].dirty || sellerForm.controls['password'].touched)">
+                                <small class="text-danger">Password is required.</small>
+                            </div>
+                        </div>
+    
+    
+                        <div class="col-md-6">
+                            <label for="inputGender" class="form-label">Gender</label>
+                            <select class="form-select" id="inputGender" [(ngModel)]="newSeller.SellerGender" name="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div *ngIf="sellerForm.controls['gender'].invalid && (sellerForm.controls['gender'].dirty || sellerForm.controls['gender'].touched)">
+                                <small class="text-danger">Gender is required.</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" hidden>
+                            <label for="inputEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputEmail" [(ngModel)]="newSeller.SellerEmail" name="email" required>
+                            <div *ngIf="sellerForm.controls['email'].invalid && (sellerForm.controls['email'].dirty || sellerForm.controls['email'].touched)">
+                                <small class="text-danger" *ngIf="sellerForm.controls['email'].hasError('email')">Invalid email address.</small>
+                                <small class="text-danger" *ngIf="sellerForm.controls['email'].hasError('required')">Email is required.</small>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <label for="inputMobile" class="form-label">Mobile</label>
+                            <input type="tel" class="form-control" id="inputMobile" [(ngModel)]="newSeller.SellerPhoneNumber" name="mobile" required>
+                            <div *ngIf="sellerForm.controls['mobile'].invalid && (sellerForm.controls['mobile'].dirty || sellerForm.controls['mobile'].touched)">
+                                <small class="text-danger" *ngIf="sellerForm.controls['mobile'].hasError('pattern')">Invalid mobile number.</small>
+                                <small class="text-danger" *ngIf="sellerForm.controls['mobile'].hasError('required')">Mobile is required.</small>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-12">
+                            <label for="Address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="Address" [(ngModel)]="newSeller.SellerAddress" name="address" required>
+                            <div *ngIf="sellerForm.controls['address'].invalid && (sellerForm.controls['address'].dirty || sellerForm.controls['address'].touched)">
+                                <small class="text-danger">Address is required.</small>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <button type="submit" class="btn btn-primary btn-register" [disabled]="!sellerForm.form.valid">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+</body>

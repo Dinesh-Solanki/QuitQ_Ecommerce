@@ -1,0 +1,41 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Product List</title>
+</head>
+<app-sellernav></app-sellernav>
+<body>
+
+<div class="container mt-5">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity In Stock</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let product of srv.prodlist">
+                
+                <th><img src="{{product.ProductUrl}}" alt="not found" height="100px" width="150px"></th>
+                <td>{{ product.ProductName }}</td>
+                <td>{{ product.Description }}</td>
+                <td>{{ product.Price}}</td>
+                <td>{{ product.QuantityInStock }}</td>
+               
+                <td><button class="btn btn-warning" (click)="fillform(product)">Update</button></td>
+                <td><button class="btn btn-danger" (click)="deleteProduct(product.ProductId)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+

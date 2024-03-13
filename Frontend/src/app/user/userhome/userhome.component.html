@@ -1,0 +1,57 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  </head>
+  <app-usernav></app-usernav>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="list-group">
+          <li class="list-group-item bg-primary text-white">Categories</li>
+          <li *ngFor="let category of categoriesList" class="list-group-item" [ngClass]="{ active: category.CategoryId === selectedCategory }" (click)="filter(category.CategoryId)">
+            <span>{{ category.CategoryName }}</span>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="col-md-9">
+        <div>
+          <div class="row">
+            <ng-container *ngFor="let product of userprofile.prodList">
+              <div class="col-md-4 mb-4">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="{{product.ProductUrl}}"
+                    alt="not found"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">{{ product.ProductName }}</h5>
+                    <p class="card-text">{{ product.Description }}</p>
+                    <p class="card-text">
+                      <strong>Price:</strong> {{ product.Price }}
+                    </p>
+
+                    <div *ngIf="product.QuantityInStock === 0" class="text-danger">
+                      Out of Stock
+                    </div>
+
+
+                    <button class="btn btn-primary" (click)="addToCart(product.ProductId,product.ProductName,product.Price,quantity)" [disabled]="product.QuantityInStock === 0">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

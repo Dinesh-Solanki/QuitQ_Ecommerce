@@ -1,0 +1,20 @@
+<!-- order-dialog-component.component.html -->
+
+<h2 mat-dialog-title>Enter Shipping Address and Payment Type</h2>
+<div mat-dialog-content>
+  <form [formGroup]="orderForm">
+    <label for="shippingAddress">Shipping Address:</label>
+    <input type="text" formControlName="shippingAddress" required>
+
+    <label for="paymentType">Payment Type:</label>
+    <select formControlName="paymentType" required>
+      <option value="CashOnDelivery">Cash On Delivery</option>
+      <option value="OnlineBanking">Online Banking</option>
+    </select>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="orderForm.value">Submit</button>
+</div>
+

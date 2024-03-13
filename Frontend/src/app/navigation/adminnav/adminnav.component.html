@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" >QuitQ</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/adminmngcategory">Manage Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/processorder">Process Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/adminmnguser">Manage Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/adminmngseller">Manage Sellers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/totalsale">Total Sale</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="logout()">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+

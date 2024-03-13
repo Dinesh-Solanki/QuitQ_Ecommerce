@@ -1,0 +1,64 @@
+/* Add this CSS to your styles file or component stylesheet */
+body {
+  background: linear-gradient(45deg, #00ffe5cc, #ff3392a9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #495057;
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+  background-color: #343a40;
+  color: #ffffff;
+  border-color: #454d55;
+}
+
+.table tbody+tbody {
+  border-top: 2px solid #dee2e6;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f8f9fa;
+}
+
+/* Adjusted style for status color */
+.table tbody tr td:nth-child(3) span {
+  color: #000000; /* Set the color to black */
+}
+
+.buttons-container button {
+  margin-right: 10px; /* Increased margin for space between buttons */
+}
+
+.empty-order-message {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+}

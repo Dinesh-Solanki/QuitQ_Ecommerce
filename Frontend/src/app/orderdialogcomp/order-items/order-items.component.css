@@ -1,0 +1,44 @@
+/* Update your component.css file */
+
+.order-items-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .order-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .order-item:hover {
+    transform: scale(0.98); /* Adjust the scale factor as needed */
+  }
+  
+  .order-items-table th, .order-items-table td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .order-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Adjust the color as needed */
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .btn-danger {
+    margin-left: 10px;
+  }
+  
+  .empty-order-message {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

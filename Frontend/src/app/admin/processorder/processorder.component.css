@@ -1,0 +1,33 @@
+body {
+    background: linear-gradient(45deg, #00ffe5cc, #ff3392a9);
+    height:min-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.container {
+    background-color: #f8f9fa;
+    height: fit-content;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .table {
+    margin-bottom: 20px;
+  }
+  
+  .row {
+    margin-top: 20px;
+  }
+  
+  h1, h4 {
+    color: whitesmoke;
+  }

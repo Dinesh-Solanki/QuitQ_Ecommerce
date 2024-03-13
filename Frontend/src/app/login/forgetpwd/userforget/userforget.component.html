@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forget Seller Password</title>
+    
+</head>
+<app-nav></app-nav>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 registration-container">
+                <h2 class="text-center mb-4">Reset Password</h2>
+                <form #findForm="ngForm" (submit)="find()" novalidate>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="inputEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputEmail" [(ngModel)]="finduser.Email" name="email" required>
+                            <div *ngIf="findForm.controls['email'].invalid && (findForm.controls['email'].dirty || findForm.controls['email'].touched)">
+                                <small class="text-danger" *ngIf="findForm.controls['email'].hasError('email')">Invalid email address.</small>
+                                <small class="text-danger" *ngIf="findForm.controls['email'].hasError('required')">Email is required.</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputMobile" class="form-label">Mobile</label>
+                            <input type="tel" class="form-control" id="inputMobile" [(ngModel)]="finduser.PhoneNumber" name="mobile" required>
+                            <div *ngIf="findForm.controls['mobile'].invalid && (findForm.controls['mobile'].dirty || findForm.controls['mobile'].touched)">
+                                <small class="text-danger" *ngIf="findForm.controls['mobile'].hasError('pattern')">Invalid mobile number.</small>
+                                <small class="text-danger" *ngIf="findForm.controls['mobile'].hasError('required')">Mobile is required.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-register" [disabled]="!findForm.form.valid ||finduser.UserId>0">Find</button>
+                </form>
+
+                <form #Resetform="ngForm" (ngSubmit)="resetpwd()" *ngIf="finduser.UserId > 0" novalidate>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="inputPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="inputPassword" [(ngModel)]="finduser.Password" name="password" required>
+                            <div *ngIf="Resetform.controls['password'].invalid && (Resetform.controls['password'].dirty || Resetform.controls['password'].touched)">
+                                <small class="text-danger">Password is required.</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="inputConfirmPassword" [(ngModel)]="confirmpassword" name="confirmPassword" required>
+                            <div *ngIf="Resetform.controls['confirmpassword'].invalid && (Resetform.controls['confirmPassword'].dirty || Resetform.controls['confirmPassword'].touched)">
+                                <small class="text-danger" *ngIf="confirmpassword !== finduser.Password">Passwords do not match.</small>
+                                <small class="text-danger" *ngIf="Resetform.controls['confirmPassword'].hasError('required')">Confirm Password is required.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-register" [disabled]="!Resetform.form.valid || confirmpassword != finduser.Password">Reset Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+

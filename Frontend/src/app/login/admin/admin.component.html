@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    
+    
+</head>
+<app-nav></app-nav>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 login-container text-white">
+            <h2 class="text-center">Admin Login</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label ">Admin Email</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" 
+                    [(ngModel)]="admin.AdminEmail" name="AdminEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword" class="form-label">Admin Password</label>
+                    <input type="password" class="form-control" id="inputPassword" 
+                    [(ngModel)]="admin.AdminPassword" name="AdminPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+

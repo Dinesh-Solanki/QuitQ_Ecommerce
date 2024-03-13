@@ -1,0 +1,25 @@
+/* order-dialog.component.css */
+
+mat-dialog-content {
+    max-width: 400px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 8px;
+  }
+  
+  input, select {
+    margin-bottom: 16px;
+    width: 100%;
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  

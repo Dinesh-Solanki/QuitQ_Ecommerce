@@ -1,0 +1,26 @@
+<app-usernav></app-usernav>
+
+<div *ngIf="cartlist && cartlist.length > 0; else emptyCartMessage">
+  <div class="cart-table">
+    <div class="cart-row" *ngFor="let item of cartlist">
+      <div class="cart-cell">Product Name: {{ getProductById(item.ProductId)?.ProductName }}</div>
+      <div class="cart-cell"><img *ngIf="getProductById(item.ProductId)?.ProductUrl" [src]="getProductById(item.ProductId)?.ProductUrl" alt="Product Image" class="product-image" style="height: 100px; width: 150px;" /></div>
+      <div class="cart-cell">Quantity: {{ item.Quantity }}</div>
+      <div class="cart-cell">Amount: {{ item.Amount }}</div>
+      <button class="cart-btn" (click)="deleteCart(item.CartId)">Remove</button>
+    </div>
+  </div>
+
+  <div class="total-price">
+    <span>Total Price: {{ calculateTotalPrice() | currency: 'INR':'symbol':'1.2-2' }}</span>
+    <button class="place-order-btn" (click)="placeOrder()">Place Order</button>
+  </div>
+</div>
+
+<ng-template #emptyCartMessage>
+  <div class="empty-cart-message">
+    <h3>Your cart is empty. Please add items to your cart to place an order.</h3>
+  </div>
+</ng-template>
+
+

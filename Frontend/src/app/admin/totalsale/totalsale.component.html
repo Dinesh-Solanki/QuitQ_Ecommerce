@@ -1,0 +1,40 @@
+<!-- your.component.html -->
+
+<app-adminnav></app-adminnav>
+<body>
+<div class="container mt-5 bg-dark">
+  <h1 class="text-center mb-4">Order Items for Seller</h1>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Order Item ID</th>
+          <th>Order ID</th>
+          <th>Product ID</th>
+          <th>Quantity</th>
+          <th>Item Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orderItem of orderItems">
+          <td>{{ orderItem.OrderItemId }}</td>
+          <td>{{ orderItem.OrderId }}</td>
+          <td>{{ orderItem.ProductId }}</td>
+          <td>{{ orderItem.Quantity }}</td>
+          <td>{{ orderItem.ItemTotalPrice | currency:'INR':true:'1.2-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container mt-4 bg-dark">
+    <div class="row">
+      <div class="col-md-6 offset-md-6 text-right">
+        <h4>Total Revenue: {{ calculateTotalRevenue() | currency:'INR':true:'1.2-2' }}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+
+

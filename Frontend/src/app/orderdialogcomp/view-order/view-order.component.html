@@ -1,0 +1,41 @@
+<app-usernav></app-usernav>
+<body>
+<div class="container mt-5">
+  <div *ngIf="orderList && orderList.length > 0; else emptyOrderMessage">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Order Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">View Details</th>
+            <th scope="col">Cancle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orderList">
+            <td>{{ order.OrderId }}</td>
+            <td>{{ order.Amount | currency: 'INR':'symbol':'1.2-2' }}</td>
+            <td>{{order.OrderDate|date}}</td>
+            <td>{{ order.Status }}</td>
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="viewDetails(order.OrderId)">View Details</button>
+            </td>
+            <td>
+              <button class="btn btn-danger btn-sm" (click)="cancelOrder(order.OrderId)" [disabled]="isCancellationDisabled(order.Status)">Cancel Order</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <ng-template #emptyOrderMessage>
+    <div class="empty-order-message text-center">
+      <h3>You don't have any orders yet.</h3>
+    </div>
+  </ng-template>
+</div>
+</body>

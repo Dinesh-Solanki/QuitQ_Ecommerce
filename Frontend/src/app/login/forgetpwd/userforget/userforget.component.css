@@ -1,0 +1,20 @@
+body {
+    background: linear-gradient(to right, #36D1DC, #5B86E5);
+    height: 93vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.registration-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.btn-register {
+    margin-top: 10px;
+}
